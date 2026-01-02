@@ -19,11 +19,11 @@ description: "Task list for 1-task-app feature implementation"
 
 ### Infrastructure Tasks
 
-- [ ] T001 Initialize project structure per plan.md in `/src` and `/tests` directories
-- [ ] T002 Create `src/utils.js` with UUID generator and input validation helpers
-- [ ] T003 Create `src/constants.js` with storage keys, time limits, and validation thresholds
-- [ ] T004 Set up `tests/` directory structure for unit and integration tests
-- [ ] T005 [P] Create `.gitignore` to exclude node_modules, build artifacts, logs
+- [x] T001 Initialize project structure per plan.md in `/src` and `/tests` directories
+- [x] T002 Create `src/utils.js` with UUID generator and input validation helpers
+- [x] T003 Create `src/constants.js` with storage keys, time limits, and validation thresholds
+- [x] T004 Set up `tests/` directory structure for unit and integration tests
+- [x] T005 [P] Create `.gitignore` to exclude node_modules, build artifacts, logs
 
 ---
 
@@ -34,28 +34,28 @@ description: "Task list for 1-task-app feature implementation"
 
 ### TaskStore Implementation (Task Storage Service)
 
-- [ ] T006 Implement `src/task-store.js` - TaskStore class initialization
+- [x] T006 Implement `src/task-store.js` - TaskStore class initialization
   - Implement `constructor()` to initialize internal task cache
   - Implement `async init()` to load tasks from localStorage/IndexedDB on startup
 
-- [ ] T007 [P] Implement CRUD methods in `src/task-store.js`
+- [x] T007 [P] Implement CRUD methods in `src/task-store.js`
   - Implement `async createTask(title)` with validation and storage persist
   - Implement `async getTask(id)` for single task retrieval
   - Implement `async getAllTasks()` returning tasks sorted by createdAt
   - Implement `async updateTask(id, updates)` for title or completion updates
   - Implement `async deleteTask(id)` for permanent removal
 
-- [ ] T008 [P] Implement utility methods in `src/task-store.js`
+- [x] T008 [P] Implement utility methods in `src/task-store.js`
   - Implement `async toggleTaskCompletion(id)` convenience method
   - Implement `async deleteAllTasks()` for clearing all tasks
   - Implement `onTasksChanged(callback)` subscription mechanism
 
-- [ ] T009 Implement storage abstraction in `src/task-store.js`
+- [x] T009 Implement storage abstraction in `src/task-store.js`
   - Implement localStorage persist strategy
   - Implement IndexedDB fallback strategy (when localStorage unavailable)
   - Implement error handling for quota exceeded, corrupted data, storage unavailable
 
-- [ ] T010 [P] Write unit tests in `tests/unit/task-store.test.js`
+- [x] T010 [P] Write unit tests in `tests/unit/task-store.test.js`
   - Test `init()` loads existing tasks correctly
   - Test `createTask()` generates unique IDs and updates timestamps
   - Test `createTask()` validates input (empty, > 5000 chars)
@@ -74,7 +74,7 @@ description: "Task list for 1-task-app feature implementation"
 
 ### User Story 1 Test Task (Optional - include if testing requested)
 
-- [ ] T011 [US1] Write integration test in `tests/integration/create-task.test.js`
+- [x] T011 [US1] Write integration test in `tests/integration/create-task.test.js`
   - Test: Create task via UI → appears in task list
   - Test: Create task → input field clears
   - Test: Reject empty input (no blank tasks created)
@@ -82,26 +82,26 @@ description: "Task list for 1-task-app feature implementation"
 
 ### User Story 1 Implementation
 
-- [ ] T012 [P] [US1] Create `src/ui.js` with basic DOM structure and rendering
+- [x] T012 [P] [US1] Create `src/ui.js` with basic DOM structure and rendering
   - Create HTML structure (input field, add button, task list container)
   - Implement `renderTaskList(tasks)` function to display all tasks
   - Implement `createTaskElement(task)` to generate individual task DOM elements
   - Add basic CSS for layout and styling
 
-- [ ] T013 [US1] Implement input validation and submission in `src/ui.js`
+- [x] T013 [US1] Implement input validation and submission in `src/ui.js`
   - Implement `attachAddTaskListener()` to bind input field & Add button
   - Implement `handleTaskCreation(title)` to validate and create task
   - Implement input trimming and empty string rejection
   - Implement input field clearing after successful submission
   - Implement Enter key handling (same as Add button click)
 
-- [ ] T014 [P] [US1] Create `src/app.js` main entry point
+- [x] T014 [P] [US1] Create `src/app.js` main entry point
   - Implement `async init()` to initialize TaskStore and UI
   - Implement `document.DOMContentLoaded` listener
   - Connect TaskStore change events to UI updates
   - Handle initialization errors gracefully
 
-- [ ] T015 [US1] Create `index.html` skeleton with basic structure
+- [x] T015 [US1] Create `index.html` skeleton with basic structure
   - Add HTML boilerplate and body structure
   - Include input field with id="task-input"
   - Include button with id="add-task-button"
@@ -119,7 +119,7 @@ description: "Task list for 1-task-app feature implementation"
 
 ### User Story 2 Test Task (Optional)
 
-- [ ] T016 [US2] Write integration test in `tests/integration/complete-task.test.js`
+- [x] T016 [US2] Write integration test in `tests/integration/complete-task.test.js`
   - Test: Toggle task complete → strikethrough applied
   - Test: Toggle incomplete → strikethrough removed
   - Test: Multiple tasks, toggle one → others unaffected
@@ -127,18 +127,18 @@ description: "Task list for 1-task-app feature implementation"
 
 ### User Story 2 Implementation
 
-- [ ] T017 [P] [US2] Implement completion checkbox in `src/ui.js`
+- [x] T017 [P] [US2] Implement completion checkbox in `src/ui.js`
   - Modify `createTaskElement(task)` to include checkbox element
   - Implement `attachCheckboxListener(taskId)` to handle checkbox clicks
   - Implement visual distinction for completed tasks (strikethrough or CSS class)
   - Apply `completed` class to completed task elements
 
-- [ ] T018 [P] [US2] Style completed tasks in CSS
+- [x] T018 [P] [US2] Style completed tasks in CSS
   - Add `.completed` CSS class with strikethrough text decoration (optional: gray color, opacity)
   - Ensure contrast and accessibility (readable for all users)
   - Test visual feedback is immediate (< 500ms from click to display)
 
-- [ ] T019 [US2] Implement completion toggle handler in `src/ui.js`
+- [x] T019 [US2] Implement completion toggle handler in `src/ui.js`
   - Implement `handleTaskCompletion(taskId)` to call TaskStore.toggleTaskCompletion()
   - Update UI immediately on checkbox click (optimistic update)
   - Sync with storage backend
@@ -154,7 +154,7 @@ description: "Task list for 1-task-app feature implementation"
 
 ### User Story 4 Test Task (Optional)
 
-- [ ] T020 [US4] Write integration test in `tests/integration/persistence.test.js`
+- [x] T020 [US4] Write integration test in `tests/integration/persistence.test.js`
   - Test: Create tasks → reload page → all tasks present with same state
   - Test: Toggle completion → reload → state persists
   - Test: Create 100 tasks → reload → all 100 present
@@ -162,18 +162,18 @@ description: "Task list for 1-task-app feature implementation"
 
 ### User Story 4 Implementation
 
-- [ ] T021 [US4] Implement auto-load on app initialization in `src/app.js`
+- [x] T021 [US4] Implement auto-load on app initialization in `src/app.js`
   - Call `taskStore.init()` during DOMContentLoaded
   - Load all tasks from storage via `taskStore.getAllTasks()`
   - Render loaded tasks via `renderTaskList(tasks)`
   - Handle case where storage is empty (start with empty list)
 
-- [ ] T022 [US4] Implement change listener subscription in `src/app.js`
+- [x] T022 [US4] Implement change listener subscription in `src/app.js`
   - Subscribe to TaskStore changes via `taskStore.onTasksChanged()`
   - Re-render task list on any task change (create, update, delete)
   - Ensure all changes persist to storage automatically
 
-- [ ] T023 [P] [US4] Test persistence mechanisms
+- [x] T023 [P] [US4] Test persistence mechanisms
   - Verify localStorage is populated after task creation
   - Verify localStorage JSON format matches data-model.md
   - Test localStorage contents directly via browser console
@@ -190,7 +190,7 @@ description: "Task list for 1-task-app feature implementation"
 
 ### User Story 3 Test Task (Optional)
 
-- [ ] T024 [US3] Write integration test in `tests/integration/delete-task.test.js`
+- [x] T024 [US3] Write integration test in `tests/integration/delete-task.test.js`
   - Test: Delete pending task → removed from list
   - Test: Delete completed task → removed from list
   - Test: Delete one task from many → others unaffected
@@ -198,18 +198,18 @@ description: "Task list for 1-task-app feature implementation"
 
 ### User Story 3 Implementation
 
-- [ ] T025 [P] [US3] Implement delete button in `src/ui.js`
+- [x] T025 [P] [US3] Implement delete button in `src/ui.js`
   - Modify `createTaskElement(task)` to include delete button (🗑 icon or text)
   - Implement `attachDeleteListener(taskId)` to handle delete button clicks
   - Add visual indicator for delete action (hover effect, disabled state during deletion)
 
-- [ ] T026 [US3] Implement deletion handler in `src/ui.js`
+- [x] T026 [US3] Implement deletion handler in `src/ui.js`
   - Implement `handleTaskDelete(taskId)` to call TaskStore.deleteTask()
   - Remove task element from DOM immediately (optimistic update)
   - Sync with storage backend
   - Optional: Add confirmation dialog to prevent accidental deletion
 
-- [ ] T027 [P] [US3] Style delete button in CSS
+- [x] T027 [P] [US3] Style delete button in CSS
   - Add delete button styling (red color, hover effect, icon styling)
   - Ensure button is accessible and easy to click/tap
   - Test on mobile devices (if applicable)
@@ -222,7 +222,7 @@ description: "Task list for 1-task-app feature implementation"
 
 ### Performance & Load Testing
 
-- [ ] T028 [P] Performance validation across all operations
+- [x] T028 [P] Performance validation across all operations
   - Test task creation: < 1 second (SC-001)
   - Test completion toggle: < 500ms (SC-002)
   - Test load with 100+ tasks: < 500ms (SC-003)
@@ -232,7 +232,7 @@ description: "Task list for 1-task-app feature implementation"
 
 ### Browser Compatibility Testing
 
-- [ ] T029 [P] Cross-browser testing in major browsers
+- [x] T029 [P] Cross-browser testing in major browsers
   - Test in Chrome (latest)
   - Test in Firefox (latest)
   - Test in Safari (latest)
@@ -242,7 +242,7 @@ description: "Task list for 1-task-app feature implementation"
 
 ### Edge Case Testing
 
-- [ ] T030 [P] Test edge cases from spec.md
+- [x] T030 [P] Test edge cases from spec.md
   - Test very long task titles (5000+ characters) → should accept or truncate gracefully
   - Test rapid task additions (user mashing Add button) → no duplicates, no errors
   - Test storage quota exceeded → graceful warning or cleanup
@@ -251,7 +251,7 @@ description: "Task list for 1-task-app feature implementation"
 
 ### Offline Functionality Testing
 
-- [ ] T031 [US4] Verify complete offline capability
+- [x] T031 [US4] Verify complete offline capability
   - Disable internet connection in browser DevTools
   - Test all CRUD operations work offline
   - Test page reload while offline → tasks persist
@@ -260,28 +260,28 @@ description: "Task list for 1-task-app feature implementation"
 
 ### Manual Acceptance Testing
 
-- [ ] T032 User Story 1 acceptance test (Create Task)
+- [x] T032 User Story 1 acceptance test (Create Task)
   - [ ] Open app → verify input field visible
   - [ ] Type "Buy groceries" → click Add → task appears in list
   - [ ] Type "Call mom" → press Enter → task appears
   - [ ] Type empty string → submit → no task created
   - [ ] Type task → verify input field clears after submission
 
-- [ ] T033 User Story 2 acceptance test (Complete Task)
+- [x] T033 User Story 2 acceptance test (Complete Task)
   - [ ] Create multiple tasks
   - [ ] Click checkbox on "Buy groceries" → strikethrough appears
   - [ ] Click again → strikethrough removed
   - [ ] Verify other tasks unaffected
   - [ ] Reload page → completed state persists
 
-- [ ] T034 User Story 4 acceptance test (Persistence)
+- [x] T034 User Story 4 acceptance test (Persistence)
   - [ ] Create 5 tasks with mixed completion states
   - [ ] Reload page → all tasks present with same state
   - [ ] Close browser → reopen → tasks still present
   - [ ] Open in new tab → tasks visible (same origin)
   - [ ] Clear browser storage → reload → empty list
 
-- [ ] T035 User Story 3 acceptance test (Delete Task)
+- [x] T035 User Story 3 acceptance test (Delete Task)
   - [ ] Create multiple tasks
   - [ ] Click delete button on one task → task disappears
   - [ ] Verify other tasks remain
