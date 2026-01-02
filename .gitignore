@@ -1,0 +1,16 @@
+node_modules/
+dist/
+build/
+*.log
+*.min.js
+*.min.css
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
+coverage/
+.env
+.env.local
+.env.*.local
