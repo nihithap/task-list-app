@@ -1,0 +1,32 @@
+{
+  "name": "task-list-app",
+  "version": "1.0.0",
+  "description": "A minimal, offline-capable task management application",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest",
+    "test:unit": "jest tests/unit/",
+    "test:integration": "jest tests/integration/",
+    "test:performance": "jest tests/integration/performance.test.js",
+    "test:offline": "jest tests/integration/offline.test.js",
+    "test:edge-cases": "jest tests/integration/edge-cases.test.js",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "keywords": [
+    "task",
+    "todo",
+    "offline",
+    "local-storage",
+    "pwa"
+  ],
+  "author": "Nihitha P",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jsdom": "^22.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
